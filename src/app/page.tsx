@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Compass, Camera, Mic, Shield, Zap, Search, Brain, Star, Quote } from "lucide-react";
+import { ArrowRight, Compass, Camera, Mic, Shield, Zap, Search, Brain, Star, Quote, Activity } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useChallenge } from "@/store/ChallengeContext";
@@ -87,162 +87,224 @@ export default function Home() {
         }}
       />
 
+      {/* Top Navbar */}
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 pointer-events-none">
+        <div className="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-3 glass px-5 py-2.5 rounded-2xl border-white/5 shadow-xl"
+          >
+            <img src="/logo.png" alt="Student Growth Lab Logo" className="w-8 h-8 object-contain" />
+            <span className="text-xl font-black tracking-tighter uppercase text-white">Student Growth Lab</span>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="hidden md:flex items-center gap-8 text-xs font-black uppercase tracking-widest text-slate-500"
+          >
+            <a href="#traits" className="hover:text-cyan-400 transition-colors pointer-events-auto">Methodology</a>
+            <a href="#faq" className="hover:text-cyan-400 transition-colors pointer-events-auto">Privacy</a>
+            <button className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-white pointer-events-auto">
+              Institutional Login
+            </button>
+          </motion.div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center p-6 text-center">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse delay-1000" />
+      <section className="relative min-h-screen flex items-center justify-center py-24 px-6 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[140px] animate-pulse" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[140px] animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
         </div>
 
-        <div className="z-10 max-w-5xl relative">
+        <div className="z-10 max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start pt-12 lg:pt-20">
+          {/* Left Column: Content */}
+          <div className="text-center lg:text-left pt-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[10px] font-black tracking-widest text-cyan-400 uppercase"
+            >
+              <Activity className="w-3.5 h-3.5" />
+              <span>Behavioral Intelligence v2.0</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.85] text-white"
+            >
+              Master Your <br />
+              <span className="text-gradient">Operational DNA</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-lg md:text-xl text-slate-400 mb-12 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed"
+            >
+              Step into a 7-minute high-fidelity simulation designed to map how you think, decide, and execute under extreme uncertainty. Powered by multimodal AI.
+            </motion.p>
+
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="hidden lg:flex items-center gap-12 text-slate-500"
+            >
+              <div>
+                <p className="text-2xl font-black text-white">7 min</p>
+                <p className="text-[10px] uppercase tracking-widest font-bold">Analysis Time</p>
+              </div>
+              <div className="w-px h-8 bg-white/10" />
+              <div>
+                <p className="text-2xl font-black text-white">100%</p>
+                <p className="text-[10px] uppercase tracking-widest font-bold">Local Privacy</p>
+              </div>
+              <div className="w-px h-8 bg-white/10" />
+              <div>
+                <p className="text-2xl font-black text-white">4D</p>
+                <p className="text-[10px] uppercase tracking-widest font-bold">Trait Mapping</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Form & Sensors */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs font-bold tracking-widest text-cyan-400 uppercase"
-          >
-            <img src="/logo.png" alt="" className="w-4 h-4 object-contain" />
-            <span>Behavioral Intelligence v2.0</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9]"
-          >
-            Discover How You <br />
-            <span className="text-gradient">Operate Under Uncertainty</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-slate-400 mb-12 max-w-2xl mx-auto font-light"
+            className="flex flex-col items-center"
           >
-            A 7-minute cinematic challenge that uses AI and real-time behavioral patterns to map your operational DNA.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col items-center gap-8"
-          >
-            <div className="flex flex-col items-center glass p-6 rounded-3xl max-w-sm w-full border-white/5 shadow-2xl">
-              <div className="flex items-center justify-between w-full mb-4">
-                <div className="flex items-center gap-2 text-slate-300 font-bold text-sm uppercase tracking-tighter">
-                  <Camera className="w-4 h-4 text-cyan-400" />
-                  <Mic className="w-4 h-4 text-purple-400" />
-                  Sensor Mode
+            <div className="w-full max-w-md space-y-8">
+              {/* Sensor Card */}
+              <div className="glass p-6 rounded-3xl border-white/5 shadow-2xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="flex items-center justify-between w-full mb-4">
+                  <div className="flex items-center gap-3 text-slate-300 font-bold text-xs uppercase tracking-widest">
+                    <div className="flex gap-2">
+                      <Camera className="w-4 h-4 text-cyan-400" />
+                      <Mic className="w-4 h-4 text-purple-400" />
+                    </div>
+                    <span>Sensor Suite</span>
+                  </div>
+                  <button 
+                    onClick={toggleSensors}
+                    aria-label="Toggle multimodal tracking sensors"
+                    className={cn(
+                      "w-12 h-6 rounded-full transition-all relative",
+                      sensorsEnabled ? "bg-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.4)]" : "bg-slate-800"
+                    )}
+                  >
+                    <div className={cn(
+                      "absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform duration-300",
+                      sensorsEnabled ? "translate-x-6" : "translate-x-0"
+                    )} />
+                  </button>
                 </div>
+                <p className="text-[10px] text-slate-500 leading-relaxed uppercase font-bold tracking-tight">
+                  Analyzing gaze, micro-expressions, and speech variance. 100% processed locally on your device.
+                </p>
+              </div>
+
+              {/* Auth Card */}
+              <div className="glass p-10 rounded-[48px] border-white/5 shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
+                <h2 className="text-[10px] font-black tracking-[0.4em] uppercase text-slate-500 mb-10 text-center">Candidate Credentials</h2>
+                
+                <div className="space-y-6">
+                  <div className="group">
+                    <label htmlFor="full-name" className="block text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-3 ml-4 group-focus-within:text-cyan-400 transition-colors">Full Name</label>
+                    <input 
+                      id="full-name"
+                      type="text" 
+                      value={userData.name || ""}
+                      onChange={(e) => setUserData({ ...userData, name: e.target.value })}
+                      placeholder="Enter candidate name"
+                      autoComplete="off"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-4 focus:ring-cyan-500/5 transition-all font-mono text-sm"
+                    />
+                  </div>
+                  <div className="group">
+                    <label htmlFor="org" className="block text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-3 ml-4 group-focus-within:text-purple-400 transition-colors">Organization</label>
+                    <input 
+                      id="org"
+                      type="text" 
+                      value={userData.college || ""}
+                      onChange={(e) => setUserData({ ...userData, college: e.target.value })}
+                      placeholder="University or Company"
+                      autoComplete="off"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/5 transition-all font-mono text-sm"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="group">
+                      <label htmlFor="branch" className="block text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-3 ml-4 group-focus-within:text-cyan-400 transition-colors">Branch</label>
+                      <input 
+                        id="branch"
+                        type="text" 
+                        value={userData.branch || ""}
+                        onChange={(e) => setUserData({ ...userData, branch: e.target.value })}
+                        placeholder="e.g. CS, IT"
+                        autoComplete="off"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-4 focus:ring-cyan-500/5 transition-all font-mono text-sm"
+                      />
+                    </div>
+                    <div className="group">
+                      <label htmlFor="prn" className="block text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-3 ml-4 group-focus-within:text-purple-400 transition-colors">PRN / ID</label>
+                      <input 
+                        id="prn"
+                        type="text" 
+                        value={userData.prn || ""}
+                        onChange={(e) => setUserData({ ...userData, prn: e.target.value })}
+                        placeholder="ID Number"
+                        autoComplete="off"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-purple-500/50 focus:ring-4 focus:ring-purple-500/5 transition-all font-mono text-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <button 
-                  onClick={toggleSensors}
-                  aria-label="Toggle multimodal tracking sensors"
+                  onClick={handleStart}
+                  disabled={status === "requesting" || !userData.name || !userData.college || !userData.branch || !userData.prn}
                   className={cn(
-                    "w-12 h-6 rounded-full transition-all relative",
-                    sensorsEnabled ? "bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]" : "bg-slate-800"
+                    "group relative w-full mt-10 transition-all active:scale-95",
+                    (!userData.name || !userData.college || !userData.branch || !userData.prn) && "opacity-50 grayscale cursor-not-allowed"
                   )}
                 >
-                  <div className={cn(
-                    "absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform",
-                    sensorsEnabled ? "translate-x-6" : "translate-x-0"
-                  )} />
+                  <div className="absolute inset-0 bg-white/20 blur-2xl rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative flex items-center justify-center gap-3 px-12 py-6 bg-white text-black text-sm font-black rounded-full transition-transform hover:bg-slate-100 uppercase tracking-widest">
+                    {status === "requesting" ? "INITIALIZING..." : "Begin Analysis"}
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </button>
-              </div>
-              <p className="text-[10px] text-slate-500 text-left leading-relaxed">
-                ENABLE MULTIMODAL TRACKING TO ANALYZE EYE GAZE, SPEECH VARIANCE, AND MICRO-EXPRESSIONS. PROCESSED 100% LOCALLY.
-              </p>
-            </div>
 
-            <div className="flex flex-col items-center glass p-8 rounded-[40px] max-w-md w-full border-white/5 shadow-2xl mb-8">
-              <h2 className="text-xs font-black tracking-[0.3em] uppercase text-slate-500 mb-8">Candidate Authentication</h2>
-              
-              <div className="w-full space-y-6">
-                <div>
-                  <label htmlFor="full-name" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">Full Name</label>
-                  <input 
-                    id="full-name"
-                    type="text" 
-                    value={userData.name || ""}
-                    onChange={(e) => setUserData({ ...userData, name: e.target.value })}
-                    placeholder="Enter candidate name"
-                    suppressHydrationWarning={true}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-cyan-500/50 transition-all font-mono text-sm"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="org" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">College / Organization</label>
-                  <input 
-                    id="org"
-                    type="text" 
-                    value={userData.college || ""}
-                    onChange={(e) => setUserData({ ...userData, college: e.target.value })}
-                    placeholder="Enter institution name"
-                    suppressHydrationWarning={true}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-purple-500/50 transition-all font-mono text-sm"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="branch" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">Branch</label>
-                    <input 
-                      id="branch"
-                      type="text" 
-                      value={userData.branch || ""}
-                      onChange={(e) => setUserData({ ...userData, branch: e.target.value })}
-                      placeholder="e.g. CSE, IT"
-                      suppressHydrationWarning={true}
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-cyan-500/50 transition-all font-mono text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="prn" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">PRN / ID</label>
-                    <input 
-                      id="prn"
-                      type="text" 
-                      value={userData.prn || ""}
-                      onChange={(e) => setUserData({ ...userData, prn: e.target.value })}
-                      placeholder="PRN number"
-                      suppressHydrationWarning={true}
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-purple-500/50 transition-all font-mono text-sm"
-                    />
-                  </div>
-                </div>
+                {status === "error" && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-6 p-4 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center gap-3 text-red-400 text-[10px] font-bold uppercase tracking-widest"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                    {errorMsg}
+                  </motion.div>
+                )}
               </div>
             </div>
-
-            <button 
-              onClick={handleStart}
-              disabled={status === "requesting" || !userData.name || !userData.college || !userData.branch || !userData.prn}
-              className={cn(
-                "group relative w-full md:w-auto",
-                (!userData.name || !userData.college || !userData.branch || !userData.prn) && "opacity-50 grayscale cursor-not-allowed"
-              )}
-            >
-              <div className="absolute inset-0 bg-white/20 blur-2xl rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative flex items-center justify-center gap-3 px-12 py-6 bg-white text-black text-xl font-black rounded-full transition-transform hover:scale-105 active:scale-95">
-                {status === "requesting" ? "INITIALIZING SENSORS..." : "START CHALLENGE"}
-                <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
-              </div>
-            </button>
-
-            {status === "error" && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-6 p-4 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center gap-3 text-red-400 text-xs font-bold"
-              >
-                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                {errorMsg}
-              </motion.div>
-            )}
           </motion.div>
         </div>
       </section>
 
       {/* Traits Section */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section id="traits" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Core Dimensions of Student Growth</h2>
           <p className="text-slate-500">Beyond standard personality tests, we map behavioral execution for career readiness.</p>
@@ -326,7 +388,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section for AI SEO */}
-      <section className="py-24 px-6 max-w-4xl mx-auto">
+      <section id="faq" className="py-24 px-6 max-w-4xl mx-auto scroll-mt-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
           <p className="text-slate-500">Everything you need to know about SGL Behavioral Intelligence.</p>
