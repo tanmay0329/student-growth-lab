@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Compass, Camera, Mic, Shield, Zap, Search, Brain, Star, Quote, Activity } from "lucide-react";
+import { ArrowRight, Compass, Camera, Mic, Shield, Zap, Search, Brain, Star, Quote, Activity, Mail, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useChallenge } from "@/store/ChallengeContext";
@@ -106,6 +106,7 @@ export default function Home() {
           >
             <a href="#traits" className="hover:text-cyan-400 transition-colors pointer-events-auto">Methodology</a>
             <a href="#faq" className="hover:text-cyan-400 transition-colors pointer-events-auto">Privacy</a>
+            <a href="#contact" className="hover:text-cyan-400 transition-colors pointer-events-auto">Contact</a>
             <button className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all text-white pointer-events-auto">
               Institutional Login
             </button>
@@ -445,6 +446,99 @@ export default function Home() {
         />
       </section>
 
+      {/* Contact Section */}
+      <section id="contact" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[10px] font-black tracking-widest text-purple-400 uppercase"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>Connect with us</span>
+            </motion.div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-tight">
+              Let&apos;s Build the <br />
+              <span className="text-gradient">Future of Growth</span>
+            </h2>
+            <p className="text-lg text-slate-400 mb-12 max-w-lg font-light leading-relaxed">
+              Have questions about our methodology or want to integrate SGL into your institution? We&apos;re here to help.
+            </p>
+            
+            <div className="space-y-8">
+              <div className="flex items-start gap-6 group">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-cyan-500/50 transition-colors">
+                  <MapPin className="w-6 h-6 text-cyan-400" />
+                </div>
+                <div>
+                  <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-1">HQ Location</p>
+                  <p className="text-lg font-bold text-white">Pune, Maharashtra, India</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-6 group">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-purple-500/50 transition-colors">
+                  <Mail className="w-6 h-6 text-purple-400" />
+                </div>
+                <div>
+                  <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-1">Direct Inquiries</p>
+                  <p className="text-lg font-bold text-white">admin@praisearray.org</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass p-10 rounded-[48px] border-white/5 shadow-2xl relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+            <form action="https://formspree.io/f/xkoybdej" method="POST" className="space-y-6">
+              <div>
+                <label className="block text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-3 ml-4">Full Name</label>
+                <input 
+                  type="text" 
+                  name="name"
+                  required
+                  placeholder="Enter your name"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-cyan-500/50 transition-all font-mono text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-3 ml-4">Email Address</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  required
+                  placeholder="name@university.edu"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-purple-500/50 transition-all font-mono text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-3 ml-4">Message</label>
+                <textarea 
+                  name="message"
+                  required
+                  rows={4}
+                  placeholder="How can we help you?"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-cyan-500/50 transition-all font-mono text-sm resize-none"
+                />
+              </div>
+              <button 
+                type="submit"
+                className="w-full relative flex items-center justify-center gap-3 px-12 py-6 bg-white text-black text-sm font-black rounded-full transition-transform hover:scale-[1.02] active:scale-95 uppercase tracking-widest"
+              >
+                Send Message
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-20 px-6 border-t border-white/5 text-center">
         <div className="flex items-center justify-center gap-4 mb-8">
@@ -452,9 +546,20 @@ export default function Home() {
           <span className="text-2xl font-black tracking-tighter uppercase">Student Growth Lab</span>
         </div>
         <div className="flex gap-8 justify-center text-slate-500 text-sm mb-12">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Methodology</a>
-          <a href="#" className="hover:text-white transition-colors">Contact</a>
+          <a href="#traits" className="hover:text-white transition-colors">Methodology</a>
+          <a href="#faq" className="hover:text-white transition-colors">Privacy</a>
+          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+        </div>
+        <div className="mb-12">
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 mb-2">Powered by</p>
+          <a 
+            href="https://praisearray.org" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-lg font-black tracking-tighter text-white hover:text-cyan-400 transition-colors"
+          >
+            Praise Array
+          </a>
         </div>
         <p className="text-slate-600 text-xs">© 2026 Student Growth Lab. ALL RIGHTS RESERVED.</p>
       </footer>

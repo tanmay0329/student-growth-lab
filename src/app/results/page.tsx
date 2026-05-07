@@ -267,9 +267,22 @@ export default function Results() {
           </div>
         )}
 
-        <p className="mt-16 text-center text-[10px] font-black uppercase tracking-[0.4em] text-slate-700">
-          Student Growth Lab // Neural Analysis Sequence Complete
-        </p>
+        <div className="mt-16 text-center">
+          <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-700 mb-6">
+            Student Growth Lab // Neural Analysis Sequence Complete
+          </p>
+          <div className="pt-8 border-t border-white/5">
+            <p className="text-[8px] font-black uppercase tracking-[0.3em] text-slate-600 mb-2">Powered by</p>
+            <a 
+              href="https://praisearray.org" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-sm font-black tracking-tighter text-slate-400 hover:text-cyan-400 transition-colors"
+            >
+              Praise Array
+            </a>
+          </div>
+        </div>
       </div>
     </main>
   );
