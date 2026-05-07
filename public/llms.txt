@@ -1,0 +1,21 @@
+# Student Growth Lab
+
+Student Growth Lab (SGL) is a modern platform focused on student development through AI-powered behavioral intelligence, career guidance, and skill mapping.
+
+## Core Capabilities
+- **Behavioral Intelligence**: Real-time analysis of decision-making patterns under uncertainty.
+- **Career Growth**: Mapping behavioral archetypes to professional roles.
+- **Skill Mapping**: Identifying core strengths in confidence, curiosity, and resilience.
+- **Internships & Projects**: Connecting students with opportunities based on their operational DNA.
+
+## User Personas
+- **Students**: Seeking self-awareness and career direction.
+- **Educators**: Aiming to personalize student development at scale.
+- **Recruiters**: Looking for specific behavioral archetypes for high-growth roles.
+
+## Technical Architecture
+Built with Next.js 15+, Tailwind CSS, and Mediapipe for real-time local behavioral processing.
+
+## Contact & Links
+- Website: https://student-growth-lab.vercel.app
+- Documentation: https://student-growth-lab.vercel.app/docs (Coming Soon)
