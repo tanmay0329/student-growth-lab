@@ -95,7 +95,7 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3 glass px-5 py-2.5 rounded-2xl border-white/5 shadow-xl"
           >
-            <img src="/logo.png" alt="Student Growth Lab Logo" className="w-8 h-8 object-contain" />
+            <img src="/logo.png" alt="Student Growth Lab Logo" className="w-8 h-8 object-contain mix-blend-lighten" />
             <span className="text-xl font-black tracking-tighter uppercase text-white">Student Growth Lab</span>
           </motion.div>
           
@@ -540,28 +540,83 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 px-6 border-t border-white/5 text-center">
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <img src="/logo.png" alt="Student Growth Lab Logo" className="w-12 h-12 object-contain" />
-          <span className="text-2xl font-black tracking-tighter uppercase">Student Growth Lab</span>
+      <footer className="pt-24 pb-12 px-6 border-t border-white/5 relative overflow-hidden">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+        
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+            {/* Column 1: Brand */}
+            <div className="col-span-1 md:col-span-1">
+              <div className="flex items-center gap-3 mb-6">
+                <img src="/logo.png" alt="Student Growth Lab Logo" className="w-8 h-8 object-contain mix-blend-lighten" />
+                <span className="text-xl font-black tracking-tighter uppercase text-white">Student Growth Lab</span>
+              </div>
+              <p className="text-sm text-slate-500 leading-relaxed mb-6">
+                Redefining behavioral intelligence through high-fidelity simulations and multimodal AI analysis.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:border-cyan-500/50 transition-colors text-slate-400 hover:text-cyan-400">
+                  <Activity className="w-4 h-4" />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-colors text-slate-400 hover:text-purple-400">
+                  <Shield className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Column 2: Platform */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-8">Platform</h4>
+              <ul className="space-y-4 text-sm text-slate-500">
+                <li><a href="#traits" className="hover:text-cyan-400 transition-colors">Methodology</a></li>
+                <li><a href="#faq" className="hover:text-cyan-400 transition-colors">AI Analysis</a></li>
+                <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Partner Inquiry</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Legal */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-8">Governance</h4>
+              <ul className="space-y-4 text-sm text-slate-500">
+                <li><a href="#faq" className="hover:text-cyan-400 transition-colors">Privacy Framework</a></li>
+                <li><a href="#" className="hover:text-cyan-400 transition-colors">Data Processing</a></li>
+                <li><a href="#" className="hover:text-cyan-400 transition-colors">Ethics Policy</a></li>
+              </ul>
+            </div>
+
+            {/* Column 4: HUD */}
+            <div className="glass p-6 rounded-3xl border-white/5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">System Active</span>
+              </div>
+              <p className="text-[10px] text-slate-500 uppercase tracking-tighter leading-tight mb-4">
+                Neural processing clusters operational across all nodes.
+              </p>
+              <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                <div className="h-full w-[85%] bg-gradient-to-r from-cyan-500 to-purple-500" />
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p className="text-[10px] text-slate-600 uppercase tracking-widest font-medium">
+              © 2026 Student Growth Lab. ALL RIGHTS RESERVED.
+            </p>
+            
+            <div className="flex items-center gap-4">
+              <p className="text-[8px] font-black uppercase tracking-[0.3em] text-slate-600">Powered by</p>
+              <a 
+                href="https://praisearray.org" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-xs font-black tracking-tighter text-slate-400 hover:text-white transition-colors uppercase"
+              >
+                Praise Array
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="flex gap-8 justify-center text-slate-500 text-sm mb-12">
-          <a href="#traits" className="hover:text-white transition-colors">Methodology</a>
-          <a href="#faq" className="hover:text-white transition-colors">Privacy</a>
-          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-        </div>
-        <div className="mb-12">
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 mb-2">Powered by</p>
-          <a 
-            href="https://praisearray.org" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-lg font-black tracking-tighter text-white hover:text-cyan-400 transition-colors"
-          >
-            Praise Array
-          </a>
-        </div>
-        <p className="text-slate-600 text-xs">© 2026 Student Growth Lab. ALL RIGHTS RESERVED.</p>
       </footer>
     </main>
   );
