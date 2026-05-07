@@ -100,7 +100,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs font-bold tracking-widest text-cyan-400 uppercase"
           >
-            <Compass className="w-4 h-4" />
+            <img src="/logo.png" alt="" className="w-4 h-4 object-contain" />
             <span>Behavioral Intelligence v2.0</span>
           </motion.div>
 
@@ -385,8 +385,8 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-20 px-6 border-t border-white/5 text-center">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <Compass className="w-8 h-8 text-cyan-400" />
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <img src="/logo.png" alt="Student Growth Lab Logo" className="w-12 h-12 object-contain" />
           <span className="text-2xl font-black tracking-tighter uppercase">Student Growth Lab</span>
         </div>
         <div className="flex gap-8 justify-center text-slate-500 text-sm mb-12">

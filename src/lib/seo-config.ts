@@ -3,7 +3,7 @@ export const SEO_CONFIG = {
   defaultTitle: "Student Growth Lab | AI-Powered Behavioral Intelligence & Career Growth",
   titleTemplate: "%s | Student Growth Lab",
   description: "Accelerate your professional journey with Student Growth Lab. AI-driven behavioral analysis, skill development, career guidance, and internship opportunities for modern students.",
-  siteUrl: "https://student-growth-lab.vercel.app", // Placeholder, will be used for canonicals
+  siteUrl: "https://studentgrowth.vercel.app", // Correct production URL
   twitterHandle: "@studentgrowth",
   ogImage: "/og-image.png", // We'll assume this exists or use a placeholder
   keywords: [
