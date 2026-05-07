@@ -53,6 +53,40 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Student Growth Lab",
+            "url": "https://student-growth-lab.vercel.app",
+            "logo": "https://student-growth-lab.vercel.app/logo.png",
+            "description": "AI-powered behavioral intelligence and career growth platform for students.",
+            "sameAs": [
+              "https://twitter.com/studentgrowth",
+              "https://linkedin.com/company/studentgrowthlab"
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Behavioral Intelligence Assessment",
+            "provider": {
+              "@type": "Organization",
+              "name": "Student Growth Lab"
+            },
+            "description": "7-minute cinematic challenge using AI to map candidate operational DNA."
+          })
+        }}
+      />
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center p-6 text-center">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -104,6 +138,7 @@ export default function Home() {
                 </div>
                 <button 
                   onClick={toggleSensors}
+                  aria-label="Toggle multimodal tracking sensors"
                   className={cn(
                     "w-12 h-6 rounded-full transition-all relative",
                     sensorsEnabled ? "bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]" : "bg-slate-800"
@@ -125,8 +160,9 @@ export default function Home() {
               
               <div className="w-full space-y-6">
                 <div>
-                  <label className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">Full Name</label>
+                  <label htmlFor="full-name" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">Full Name</label>
                   <input 
+                    id="full-name"
                     type="text" 
                     value={userData.name || ""}
                     onChange={(e) => setUserData({ ...userData, name: e.target.value })}
@@ -136,8 +172,9 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <label className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">College / Organization</label>
+                  <label htmlFor="org" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">College / Organization</label>
                   <input 
+                    id="org"
                     type="text" 
                     value={userData.college || ""}
                     onChange={(e) => setUserData({ ...userData, college: e.target.value })}
@@ -148,8 +185,9 @@ export default function Home() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">Branch</label>
+                    <label htmlFor="branch" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">Branch</label>
                     <input 
+                      id="branch"
                       type="text" 
                       value={userData.branch || ""}
                       onChange={(e) => setUserData({ ...userData, branch: e.target.value })}
@@ -159,8 +197,9 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">PRN / ID</label>
+                    <label htmlFor="prn" className="block text-[8px] font-black uppercase tracking-widest text-slate-600 mb-2 ml-4">PRN / ID</label>
                     <input 
+                      id="prn"
                       type="text" 
                       value={userData.prn || ""}
                       onChange={(e) => setUserData({ ...userData, prn: e.target.value })}
@@ -205,8 +244,8 @@ export default function Home() {
       {/* Traits Section */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Core Dimensions Measured</h2>
-          <p className="text-slate-500">Beyond standard personality tests, we map behavioral execution.</p>
+          <h2 className="text-4xl font-bold mb-4">Core Dimensions of Student Growth</h2>
+          <p className="text-slate-500">Beyond standard personality tests, we map behavioral execution for career readiness.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {traits.map((trait, i) => (
@@ -229,6 +268,10 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-24 bg-slate-950/50">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Success Stories from our Community</h2>
+            <p className="text-slate-500">Real impact on student careers and professional development.</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -280,6 +323,64 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* FAQ Section for AI SEO */}
+      <section className="py-24 px-6 max-w-4xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p className="text-slate-500">Everything you need to know about SGL Behavioral Intelligence.</p>
+        </div>
+        <div className="space-y-6">
+          {[
+            {
+              q: "How does the behavioral analysis work?",
+              a: "SGL uses computer vision and audio analysis (processed entirely locally) to map your micro-expressions, gaze patterns, and speech variance during a high-stakes simulation."
+            },
+            {
+              q: "Is my data stored or shared?",
+              a: "No. All sensor data is processed in real-time within your browser. We only synchronize the final derived scores and archetype to help with your career guidance."
+            },
+            {
+              q: "How can SGL help my career?",
+              a: "By identifying your behavioral archetype (e.g., Visionary, Strategist), we connect you with specific roles, internships, and skill-building resources that match your natural operational DNA."
+            }
+          ].map((faq, i) => (
+            <div key={i} className="p-8 rounded-3xl border border-white/5 bg-white/5">
+              <h3 className="text-lg font-bold mb-3 text-cyan-400">{faq.q}</h3>
+              <p className="text-slate-400 leading-relaxed text-sm">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+        
+        {/* FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How does the behavioral analysis work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SGL uses computer vision and audio analysis processed locally to map micro-expressions and gaze patterns."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can SGL help my career?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It identifies your behavioral archetype to match you with suitable internships and career paths."
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </section>
 
       {/* Footer */}
