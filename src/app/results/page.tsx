@@ -178,7 +178,7 @@ export default function Results() {
           prn: userData.prn,
           confidence: scores.confidence,
           curiosity: scores.curiosity,
-          emotionalSafety: scores.emotionalSafety,
+          emotionalSafety: scores.emotional_safety,
           exploratoryPower: scores.exploratory_power,
           archetype: archetype.name
         })
