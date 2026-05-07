@@ -230,23 +230,53 @@ export default function Home() {
       <section className="py-24 bg-slate-950/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((n) => (
-              <div key={n} className="glass p-10 rounded-[40px] border-white/5 relative">
-                <Quote className="w-12 h-12 text-white/5 absolute top-8 right-8" />
+            {[
+              {
+                name: "Priya Sharma",
+                role: "Final Year CS Student",
+                org: "D.Y. Patil Institute",
+                text: "The behavioral analysis was scarily accurate. It helped me understand my decision-making patterns under pressure and gave me a clear path for growth.",
+                color: "from-cyan-500 to-blue-500"
+              },
+              {
+                name: "Dr. Arvinder Singh",
+                role: "Dean of Academics",
+                org: "Growth Engineering College",
+                text: "Integrating this simulation has allowed us to personalize student development at scale. It captures nuances that standard assessments completely miss.",
+                color: "from-purple-500 to-pink-500"
+              },
+              {
+                name: "Michael Chen",
+                role: "Tech Recruiter",
+                org: "Global Systems Inc.",
+                text: "SGL provides a multidimensional view of candidates. We now look for 'Visionary' and 'Strategist' archetypes specifically for our high-growth roles.",
+                color: "from-emerald-500 to-teal-500"
+              }
+            ].map((testimonial, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="glass p-10 rounded-[40px] border-white/5 relative group hover:border-white/10 transition-all duration-500"
+              >
+                <Quote className="w-12 h-12 text-white/5 absolute top-8 right-8 group-hover:text-white/10 transition-colors" />
                 <div className="flex gap-1 mb-6">
                   {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
                 </div>
-                <p className="text-lg text-slate-300 italic mb-8">
-                  &quot;This is not a test. It felt like a high-stakes simulation that actually knew how I was thinking.&quot;
+                <p className="text-lg text-slate-300 italic mb-8 leading-relaxed">
+                  &quot;{testimonial.text}&quot;
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500" />
+                  <div className={cn("w-12 h-12 rounded-full bg-gradient-to-br shadow-lg", testimonial.color)} />
                   <div>
-                    <p className="font-bold">Operational Lead</p>
-                    <p className="text-xs text-slate-500 uppercase tracking-widest">FinTech Startup</p>
+                    <p className="font-bold text-white">{testimonial.name}</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-widest">{testimonial.role}</p>
+                    <p className="text-[10px] text-cyan-500/70 font-bold uppercase tracking-tighter mt-0.5">{testimonial.org}</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
